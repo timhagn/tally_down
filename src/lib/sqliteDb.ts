@@ -5,7 +5,7 @@ import { open } from 'sqlite'
 export async function openDb() {
   try {
     const db = await open({
-      filename: 'tallyDown.db',
+      filename: './tallyDown.db',
       driver: sqlite3.Database,
     })
     await db.exec(

@@ -1,5 +1,4 @@
 import TallieTokes from '@/app/components/tallieTokes'
-import UpdateTallieTokes from '@/app/components/updateTallieTokes'
 
 export default async function Home() {
   return (

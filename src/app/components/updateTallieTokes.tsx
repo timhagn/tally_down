@@ -1,7 +1,8 @@
 'use client'
 
-import { addToDb } from '@/app/actions'
 import { useState } from 'react'
+import { addToDb } from '@/app/actions'
+import Tallies from '@/app/components/tallies'
 
 export default function UpdateTallieTokes({
   numberOfTokes,
@@ -12,7 +13,7 @@ export default function UpdateTallieTokes({
     useState(numberOfTokes)
   return (
     <div className="text-center">
-      {currentNumberOfTokes}
+      <Tallies number={currentNumberOfTokes} />
       <form
         action={addToDb}
         onSubmit={() => setCurrentNumberOfTokes((prev) => prev + 1)}

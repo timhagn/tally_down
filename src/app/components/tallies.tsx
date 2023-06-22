@@ -1,13 +1,13 @@
 'use client'
 
 import { Property } from 'csstype'
-import TextDecorationStyle = Property.TextDecorationStyle
 
 function Tallies({
   number = 0,
   textColor,
   textSize,
   font,
+  lineDecoration = 'line-through',
   lineStyle,
   lineColor,
   className,
@@ -16,29 +16,34 @@ function Tallies({
   textColor?: any
   textSize?: any
   font?: any
-  lineStyle?: TextDecorationStyle
-  lineColor?: any
+  lineDecoration?: Property.TextDecorationLine
+  lineStyle?: Property.TextDecorationStyle
+  lineColor?: Property.TextDecorationColor
   className?: string
 }) {
-  let fives = new Array(Math.floor(number / 5)).fill('|||| ').join(' ')
+  let fives = new Array(Math.floor(number / 5)).fill('')
   let ones = new Array(Math.floor(number % 5)).fill('|').join('')
 
-  // TODO: split up fives
   return (
     <>
       <div
         style={{ color: textColor, fontSize: textSize, fontFamily: font }}
         className={className}
       >
-        <span
-          style={{
-            textDecorationLine: 'line-through',
-            textDecorationStyle: lineStyle,
-            textDecorationColor: lineColor,
-          }}
-        >
-          {fives}
-        </span>
+        {fives.map(({ index }) => (
+          <>
+            <span
+              key={`tally-fives-${index}`}
+              style={{
+                textDecorationLine: lineDecoration,
+                textDecorationStyle: lineStyle,
+                textDecorationColor: lineColor,
+              }}
+            >
+              ||||
+            </span>{' '}
+          </>
+        ))}
         <span>{ones}</span>
       </div>
     </>

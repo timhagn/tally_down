@@ -14,7 +14,7 @@ export default async function TallieTokes() {
   const pastNumberOfTokes =
     pastTokesResult?.[pastTokesResult?.length - 1]?.numberOfTokes || 0
   return (
-    <div className="w-1/2">
+    <div className="w-full md:w-1/2">
       <UpdateTallieTokes
         numberOfTokes={numberOfTokes}
         pastNumberOfTokes={pastNumberOfTokes}

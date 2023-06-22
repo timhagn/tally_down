@@ -5,9 +5,8 @@ import { openDb } from '@/lib/sqliteDb'
 export async function addToDb() {
   const db = await openDb()
   if (db) {
-    // TODO: INSERT or UPDATE
     await db.exec(
-      "UPDATE tally_tokes SET numberOfTokes = numberOfTokes + 1 WHERE id = date('now')"
+      "INSERT INTO tally_tokes (id, numberOfTokes) VALUES(date('now'), 1) ON CONFLICT(id) DO UPDATE SET numberOfTokes = numberOfTokes + 1"
     )
   }
 }

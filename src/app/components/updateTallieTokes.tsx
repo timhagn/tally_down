@@ -14,16 +14,22 @@ export default function UpdateTallieTokes({
     useState(numberOfTokes)
   return (
     <div className="text-center">
-      <Tallies
-        number={currentNumberOfTokes}
-        className={handrawn.className}
-        textSize={42}
-      />
+      {currentNumberOfTokes ? (
+        <Tallies
+          number={currentNumberOfTokes}
+          className={handrawn.className}
+          textSize={42}
+        />
+      ) : (
+        <div className={` text-[42px]`}>(Don&apos;t) start to toke ; )</div>
+      )}
       <form
         action={addToDb}
         onSubmit={() => setCurrentNumberOfTokes((prev) => prev + 1)}
       >
-        <button type="submit">Toked</button>
+        <button type="submit" className="btn btn-blue mt-3">
+          Toked
+        </button>
       </form>
     </div>
   )

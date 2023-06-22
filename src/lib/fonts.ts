@@ -4,6 +4,8 @@ const inter = Inter({ subsets: ['latin'] })
 const handrawn = Delicious_Handrawn({
   weight: ['400'],
   subsets: ['latin'],
+  display: 'swap',
+  adjustFontFallback: false,
 })
 
 export { inter, handrawn }

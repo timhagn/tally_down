@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 4000",
+    "serve": "yarn start & sleep .5 && open-cli http://localhost:4000",
+    "serveb": "yarn serve -- brave-browser-stable",
+    "stop": "scripts/knode.sh 4000 && scripts/killZombies.sh",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,8 +17,9 @@
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "eslint": "8.43.0",
-    "eslint-config-next": "13.4.6",
-    "next": "13.4.6",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "open-cli": "^7.2.0",
     "postcss": "8.4.24",
     "prettier": "^2.8.8",
     "react": "18.2.0",

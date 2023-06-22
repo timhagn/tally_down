@@ -5,7 +5,7 @@ import UpdateTallieTokes from '@/app/components/updateTallieTokes'
 import PastTokes from '@/app/components/pastTokes'
 
 export default async function TallieTokes() {
-  const numberOfTokes = await loadTodayPuffs()
+  const { numberOfTokes, lastTokeAt } = await loadTodayPuffs()
   const pastLoadedTokesResult = await loadPastPuffs()
   const pastTokesResult = pastLoadedTokesResult?.sort(
     (a: TallyTokes, b: TallyTokes) => Date.parse(a.id) - Date.parse(b.id)
@@ -17,6 +17,7 @@ export default async function TallieTokes() {
       <UpdateTallieTokes
         numberOfTokes={numberOfTokes}
         pastNumberOfTokes={pastNumberOfTokes}
+        lastTokeAt={lastTokeAt}
       />
       <PastTokes pastTokesResult={pastTokesResult} />
     </div>

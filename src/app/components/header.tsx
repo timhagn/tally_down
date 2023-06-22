@@ -3,7 +3,7 @@ export default function Header() {
   return (
     <header>
       <h1 className="text-2xl font-bold text-center">
-        Tell me how much you puffed on:
+        Tell me how many you puffed on:
         <br />
         {today}
       </h1>

@@ -4,11 +4,14 @@ import { useState } from 'react'
 import { addToDb } from '@/app/actions'
 import Tallies from '@/app/components/tallies'
 import { handrawn } from '@/lib/fonts'
+import { WhatTheSmileyThinks } from '@/app/components/whatTheSmileyThinks'
 
 export default function UpdateTallieTokes({
   numberOfTokes,
+  pastNumberOfTokes,
 }: {
   numberOfTokes: number
+  pastNumberOfTokes: number
 }) {
   const [currentNumberOfTokes, setCurrentNumberOfTokes] =
     useState(numberOfTokes)
@@ -31,6 +34,11 @@ export default function UpdateTallieTokes({
           Puffed one
         </button>
       </form>
+      <WhatTheSmileyThinks
+        numberOfTokes={currentNumberOfTokes}
+        pastNumberOfTokes={pastNumberOfTokes}
+        className="text-3xl text-center my-10"
+      />
     </div>
   )
 }

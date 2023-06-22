@@ -3,7 +3,7 @@ import { inter } from '@/lib/fonts'
 
 export const metadata = {
   title: 'Tally Down',
-  description: 'Tally tool to try to reduce your smoking toke count.',
+  description: 'Tally tool to try to reduce your smoke puff count.',
 }
 
 export default function RootLayout({

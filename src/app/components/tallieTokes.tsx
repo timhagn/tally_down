@@ -3,7 +3,6 @@
 import { loadPastPuffs, loadTodayPuffs, TallyTokes } from '@/lib/sqliteDb'
 import UpdateTallieTokes from '@/app/components/updateTallieTokes'
 import PastTokes from '@/app/components/pastTokes'
-import { WhatTheSmileyThinks } from '@/app/components/whatTheSmileyThinks'
 
 export default async function TallieTokes() {
   const numberOfTokes = await loadTodayPuffs()

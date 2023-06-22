@@ -17,11 +17,11 @@ export default function UpdateTallieTokes({
       {currentNumberOfTokes ? (
         <Tallies
           number={currentNumberOfTokes}
-          className={handrawn.className}
+          className={`${handrawn.className} -skew-x-12`}
           textSize={42}
         />
       ) : (
-        <div className={` text-[42px]`}>(Don&apos;t) start to toke ; )</div>
+        <div className={`text-[42px]`}>(Don&apos;t) start to toke ; )</div>
       )}
       <form
         action={addToDb}

@@ -1,6 +1,7 @@
 'use client'
 
 import { Property } from 'csstype'
+import { Fragment } from 'react'
 
 function Tallies({
   number = 0,
@@ -30,10 +31,9 @@ function Tallies({
         style={{ color: textColor, fontSize: textSize, fontFamily: font }}
         className={className}
       >
-        {fives.map(({ index }) => (
-          <>
+        {fives.map((_, index) => (
+          <Fragment key={`tally-fives-${index}`}>
             <span
-              key={`tally-fives-${index}`}
               style={{
                 textDecorationLine: lineDecoration,
                 textDecorationStyle: lineStyle,
@@ -42,7 +42,7 @@ function Tallies({
             >
               ||||
             </span>{' '}
-          </>
+          </Fragment>
         ))}
         <span>{ones}</span>
       </div>

@@ -17,11 +17,7 @@ export async function openDb() {
   }
 }
 
-interface Tokes {
-  numberOfTokes: number
-}
-
-export async function loadTodayTokes(): Promise<number> {
+export async function loadTodayPuffs(): Promise<number> {
   const db = await openDb()
   if (db) {
     const result = await db.get(
@@ -33,4 +29,22 @@ export async function loadTodayTokes(): Promise<number> {
     }
   }
   return 0
+}
+
+export interface TallyTokes {
+  id: string
+  numberOfTokes: number
+}
+
+export async function loadPastPuffs(): Promise<TallyTokes[]> {
+  const db = await openDb()
+  if (db) {
+    const result = await db.all(
+      "SELECT * FROM tally_tokes WHERE id < date('now')"
+    )
+    if (result) {
+      return result
+    }
+  }
+  return []
 }

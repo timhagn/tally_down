@@ -2,6 +2,11 @@
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
 
+const DB_FILENAME =
+  process.env.NODE_ENV === 'production'
+    ? './tallyDown.db'
+    : './tallyDown.dev.db'
+
 export interface TallyTokes {
   id: string
   numberOfTokes: number
@@ -11,7 +16,7 @@ export interface TallyTokes {
 export async function openDb() {
   try {
     const db = await open({
-      filename: './tallyDown.db',
+      filename: DB_FILENAME,
       driver: sqlite3.Database,
     })
     await db.exec(

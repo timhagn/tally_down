@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 4000",
+    "parity": "cp tallyDown.db tallyDown.dev.db",
     "serve": "yarn start & sleep .5 && open-cli http://localhost:4000",
     "serveb": "yarn serve -- brave-browser-stable",
     "stop": "scripts/knode.sh 4000 && scripts/killZombies.sh",

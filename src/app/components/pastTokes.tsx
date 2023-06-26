@@ -1,6 +1,7 @@
 import { TallyTokes } from '@/lib/sqliteDb'
 import Tallies from '@/app/components/tallies'
 import { handrawn } from '@/lib/fonts'
+import PastTokeMeanAndMedian from '@/app/components/pastTokeMeanAndMedian'
 
 export default function PastTokes({
   pastTokesResult,
@@ -12,7 +13,9 @@ export default function PastTokes({
   }
   return (
     <div className="mt-10 pt-8 border-t border-gray-500 w-full">
-      <h2 className="text-lg font-bold underline mb-2">Past puff results:</h2>
+      <h2 className="text-lg font-bold underline mb-2">
+        Past puff results <PastTokeMeanAndMedian pastTokes={pastTokesResult} />:
+      </h2>
       {pastTokesResult.map(({ id, numberOfTokes }) => {
         const pastDate = new Date(id).toLocaleDateString('en', {
           dateStyle: 'long',

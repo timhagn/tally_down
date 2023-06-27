@@ -16,7 +16,7 @@ export default function PastTokes({
       <h2 className="text-lg font-bold underline mb-2">
         Past puff results <PastTokeMeanAndMedian pastTokes={pastTokesResult} />:
       </h2>
-      {pastTokesResult.map(({ id, numberOfTokes }) => {
+      {pastTokesResult.reverse().map(({ id, numberOfTokes }) => {
         const pastDate = new Date(id).toLocaleDateString('en', {
           dateStyle: 'long',
           formatMatcher: 'best fit',

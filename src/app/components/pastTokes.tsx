@@ -18,12 +18,14 @@ export default function PastTokes({
       </h2>
       {pastTokesResult.reverse().map(({ id, numberOfTokes }) => {
         const pastDate = new Date(id).toLocaleDateString('en', {
-          dateStyle: 'long',
           formatMatcher: 'best fit',
+          weekday: 'short',
+          day: '2-digit',
+          month: 'long',
         })
         return (
           <div key={id}>
-            {pastDate}:{` `}
+            <div className="inline-block min-w-[8rem]">{pastDate}:</div>{' '}
             <Tallies
               number={numberOfTokes}
               className={`${handrawn.className} inline-block -skew-x-12`}

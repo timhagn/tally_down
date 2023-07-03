@@ -24,7 +24,6 @@ export default function UpdateTallieTokes({
   const onToke = () => {
     setCurrentNumberOfTokes((prev) => prev + 1)
     const utcTimeString = getUTCTimeString()
-    console.log(utcTimeString)
     setCurrentLastTokeAt(utcTimeString)
   }
 

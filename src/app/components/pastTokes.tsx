@@ -11,12 +11,15 @@ export default function PastTokes({
   if (!pastTokesResult.length) {
     return null
   }
+
+  const reversedTokesResult = [...pastTokesResult].reverse()
+
   return (
     <div className="mt-10 pt-8 border-t border-gray-500 w-full">
       <h2 className="text-lg font-bold underline mb-2">
         Past puff results <PastTokeMeanAndMedian pastTokes={pastTokesResult} />:
       </h2>
-      {pastTokesResult.reverse().map(({ id, numberOfTokes }) => {
+      {reversedTokesResult.map(({ id, numberOfTokes }) => {
         const pastDate = new Date(id).toLocaleDateString('en', {
           formatMatcher: 'best fit',
           weekday: 'short',
